@@ -1,10 +1,19 @@
 import { useEffect, useState } from "react";
 
 const useGetCoords = (props) => {
-  const [data, setData] = useState(props.map((el) => [el["lat"], el["long"]]));
+  const [data, setData] = useState(
+    props.map((el) => {
+      console.log("el " + el);
+      return [el["long"], el["lat"]];
+    })
+  );
+
   useEffect(() => {
-    setData(props.map((el) => [el["lat"], el["long"]]));
-    //console.log("data changed " + data);
+    setData(
+      props.map((el) => {
+        return [el["long"], el["lat"]];
+      })
+    );
   }, [props]);
 
   return data;

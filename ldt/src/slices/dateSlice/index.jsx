@@ -6,9 +6,6 @@ export const dateSlice = createSlice({
   reducers: {
     setDate(state, action) {
       state.date = action.payload;
-      console.log("inside reducer");
-      console.log("date");
-      console.log(state.date);
     },
   },
 });

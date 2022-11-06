@@ -5,7 +5,7 @@ const Postmats = (props) => {
   return (
     <>
       {data.map((el) => (
-        <Marker position={[el["lat"], el["long"]]} key={el["id"]}>
+        <Marker position={[el["long"], el["lat"]]} key={el["id"]}>
           <Popup>
             {
               <>

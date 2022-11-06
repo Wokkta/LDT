@@ -6,9 +6,6 @@ export const selectModelSlice = createSlice({
   reducers: {
     setSelectModel(state, action) {
       state.selectModel = action.payload;
-      console.log("inside reducer");
-      console.log("selectModel");
-      console.log(state.selectModel);
     },
   },
 });

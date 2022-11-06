@@ -4,6 +4,7 @@ import s from "./Map.module.css";
 
 import Model from "../Model";
 import { setDot } from "../../slices/dotSlice";
+import DownloadBtn from "../UI/DownloadBtn";
 
 const Maps = () => {
   const dispatch = useDispatch();
@@ -14,8 +15,6 @@ const Maps = () => {
     useMapEvents({
       click(e) {
         dispatch(setDot([e.latlng.lat, e.latlng.lng]));
-        console.log(e.latlng.lat);
-        console.log(e.latlng.lng);
       },
     });
     return false;
@@ -36,6 +35,7 @@ const Maps = () => {
         <Model />
         <MapEvents />
       </MapContainer>
+      <DownloadBtn />
     </div>
   );
 };

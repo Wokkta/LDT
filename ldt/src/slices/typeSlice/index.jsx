@@ -6,9 +6,6 @@ export const typeSlice = createSlice({
   reducers: {
     setType(state, action) {
       state.type = action.payload;
-      console.log("inside reducer");
-      console.log("type");
-      console.log(state.type);
     },
   },
 });

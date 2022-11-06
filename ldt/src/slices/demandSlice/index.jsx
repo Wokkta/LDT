@@ -6,9 +6,6 @@ export const demandSlice = createSlice({
   reducers: {
     setDemand(state, action) {
       state.demand = action.payload;
-      console.log("inside reducer");
-      console.log("demand");
-      console.log(state.demand);
     },
   },
 });

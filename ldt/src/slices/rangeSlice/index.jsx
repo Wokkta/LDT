@@ -6,9 +6,6 @@ export const rangeSlice = createSlice({
   reducers: {
     setRange(state, action) {
       state.range = action.payload;
-      console.log("inside reducer");
-      console.log("range");
-      console.log(state.range);
     },
   },
 });

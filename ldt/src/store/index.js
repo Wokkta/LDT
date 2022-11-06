@@ -5,6 +5,7 @@ import {
   dateReducer,
   demandReducer,
   dotReducer,
+  dotsReducer,
   rangeReducer,
   selectModelReducer,
   typeReducer,
@@ -19,5 +20,6 @@ export const store = configureStore({
     dot: dotReducer,
     date: dateReducer,
     selectModel: selectModelReducer,
+    dots: dotsReducer,
   },
 });

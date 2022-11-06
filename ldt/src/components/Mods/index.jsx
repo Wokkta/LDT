@@ -104,7 +104,6 @@ const Mods = () => {
       <Date />
       <Heatmap />
       <DotBtn />
-      <DownloadBtn />
     </div>
   );
 };

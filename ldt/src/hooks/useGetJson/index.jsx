@@ -1,12 +1,12 @@
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import useGetParams from "../useGetParams";
-import data from "./test_data.json";
+
 const useGetJson = () => {
+  const dots = useSelector((state) => state.dots.dots);
   const params = useGetParams();
-  useEffect(() => {
-    console.log("params");
-    console.log(params);
-  }, [params]);
-  return data;
+
+  useEffect(() => {}, [params]);
+  return dots;
 };
 export default useGetJson;

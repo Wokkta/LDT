@@ -13,12 +13,13 @@ const Model = () => {
   const dispatch = useDispatch();
   const [currentChoise, setCurrentChoise] = useState(<></>);
   const data = useGetJson();
+
   const dots = useGetJson().map((el) => [
-    el["lat"],
     el["long"],
+    el["lat"],
     `${Math.random()}`,
   ]);
-  console.clear();
+
   console.log("data");
   console.log("dots");
   console.log(data);
@@ -47,7 +48,6 @@ const Model = () => {
         break;
 
       case 3:
-        console.log("YES");
         setCurrentChoise(<MaskOverlay />);
         break;
       case 4:
@@ -55,10 +55,6 @@ const Model = () => {
         break;
 
       default:
-        console.log("strange model ");
-        console.log(selectModel);
-
-        console.log("strange model end ");
         setCurrentChoise(<></>);
         break;
     }

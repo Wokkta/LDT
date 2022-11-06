@@ -6,3 +6,4 @@ export { default as demandReducer } from "./demandSlice";
 export { default as selectModelReducer } from "./selectModelSlice";
 export { default as dateReducer } from "./dateSlice";
 export { default as dotReducer } from "./dotSlice";
+export { default as dotsReducer } from "./dotsSlice";

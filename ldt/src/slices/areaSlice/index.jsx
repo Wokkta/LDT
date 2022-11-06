@@ -6,9 +6,6 @@ export const areaSlice = createSlice({
   reducers: {
     setArea(state, action) {
       state.area = action.payload;
-      console.log("inside reducer");
-      console.log("area");
-      console.log(state.area);
     },
   },
 });
