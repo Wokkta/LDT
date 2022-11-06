@@ -97,7 +97,7 @@ function useGetParams() {
       .get("/places/all", {
         params: {
           offset: 0,
-          count: 10000,
+          count: 5000,
         },
       })
       .catch((error) => {
