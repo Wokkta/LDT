@@ -24,6 +24,7 @@ function useGetParams() {
     dots: dots,
     dot: dot,
   };
+
   useEffect(() => {
     axios
       .get("/places/radius", {

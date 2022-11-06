@@ -12,6 +12,7 @@ import { setAreaCoords } from "../../slices/areaCoordsSlice";
 const Model = () => {
   const selectModel = useSelector((state) => state.selectModel.selectModel);
   const area = useSelector((state) => state.area.area);
+  const areaCoords = useSelector((state) => state.areaCoords.areaCoords);
   const dispatch = useDispatch();
   const [currentChoise, setCurrentChoise] = useState(<></>);
   const data = useGetJson();
@@ -31,6 +32,8 @@ const Model = () => {
       })
     )
   );
+  console.log("DATA TADA DATA");
+  console.log(areaCoords);
 
   console.log("data");
   console.log("dots");
