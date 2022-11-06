@@ -4,10 +4,10 @@ import s from "./Map.module.css";
 
 import Model from "../Model";
 import { setDot } from "../../slices/dotSlice";
-import DownloadBtn from "../UI/DownloadBtn";
 
 const Maps = () => {
   const dispatch = useDispatch();
+
   const MapEvents = () => {
     /**
      * https://stackoverflow.com/questions/70392715/how-to-get-coordinates-of-current-mouse-click-in-leaflet-react-js
@@ -35,7 +35,6 @@ const Maps = () => {
         <Model />
         <MapEvents />
       </MapContainer>
-      <DownloadBtn />
     </div>
   );
 };

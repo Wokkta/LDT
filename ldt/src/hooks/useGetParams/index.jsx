@@ -47,7 +47,7 @@ function useGetParams() {
         params: {
           lat: dot[1],
           long: dot[0],
-          r: range,
+          r: range[1],
         },
       })
       .catch((error) => {
@@ -57,7 +57,41 @@ function useGetParams() {
       .then((response) => response && dispatch(setDots(response.data)));
     console.log(222);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [range]);
+  }, [range[1]]);
+  useEffect(() => {
+    selectModel === 4 &&
+      axios
+        .get("/places/radius", {
+          params: {
+            lat: dot[1],
+            long: dot[0],
+            r: range[1],
+          },
+        })
+        .catch((error) => {
+          console.log("error " + error);
+          console.log(error.request);
+        })
+        .then((response) => response && dispatch(setDots(response.data)));
+    console.log(333);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dot]);
+  useEffect(() => {
+    axios
+      .get("/places/all", {
+        params: {
+          offset: 0,
+          count: 1000,
+        },
+      })
+      .catch((error) => {
+        console.log("error " + error);
+        console.log(error.request);
+      })
+      .then((response) => response && dispatch(setDots(response.data)));
+    console.log(333);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [date]);
   useEffect(() => {
     axios
       .get("/places/all", {
@@ -73,7 +107,7 @@ function useGetParams() {
       .then((response) => response && dispatch(setDots(response.data)));
     console.log(333);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [date]);
+  }, []);
 
   return params;
 }

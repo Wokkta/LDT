@@ -1,10 +1,11 @@
 import { Polygon } from "react-leaflet";
-import { useGetCoords, useGetJson } from "../../hooks";
+
+import { useSelector } from "react-redux";
 const MaskOverlay = (props) => {
-  let coordinats = useGetCoords(useGetJson());
+  const areaCoords = useSelector((state) => state.areaCoords.areaCoords);
   return (
     <>
-      <Polygon pathOptions={{ color: "lime" }} positions={coordinats} />
+      <Polygon pathOptions={{ color: "lime" }} positions={areaCoords} />
     </>
   );
 };

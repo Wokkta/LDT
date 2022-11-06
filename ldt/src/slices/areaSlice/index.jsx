@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const areaSlice = createSlice({
   name: "area",
-  initialState: { area: "all" },
+  initialState: { area: "Филёвский Парк" },
   reducers: {
     setArea(state, action) {
       state.area = action.payload;

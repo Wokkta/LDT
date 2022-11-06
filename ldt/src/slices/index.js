@@ -1,5 +1,6 @@
 export { default as countyReducer } from "./countySlice";
 export { default as areaReducer } from "./areaSlice";
+export { default as areaCoordsReducer } from "./areaCoordsSlice";
 export { default as typeReducer } from "./typeSlice";
 export { default as rangeReducer } from "./rangeSlice";
 export { default as demandReducer } from "./demandSlice";

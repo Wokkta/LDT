@@ -1,39 +1,26 @@
 import { DownloadOutlined } from "@ant-design/icons";
-import { ScreenCapture } from "react-screen-capture";
+import html2canvas from "html2canvas";
 import { Button } from "antd";
-import { useState } from "react";
 
-function DownloadBtn() {
-  const [screenCapture, setScreenCapture] = useState("");
-
-  const handleScreenCapture = (screenCapture) => {
-    setScreenCapture(screenCapture);
-    handleSave();
-  };
-
-  const handleSave = () => {
-    const screenCaptureSource = screenCapture;
-    const downloadLink = document.createElement("a");
-    const fileName = "react-screen-capture.png";
-
-    downloadLink.href = screenCaptureSource;
-    downloadLink.download = fileName;
-    downloadLink.click();
-  };
+function DownloadBtn(props) {
+  function handleClick(params) {
+    html2canvas(document.body).then((canvas) => {
+      var a = document.createElement("a");
+      a.href = canvas
+        .toDataURL("...assets/image/jpeg")
+        .replace("image/jpeg", "image/octet-stream");
+      a.download = "Postmats.jpg";
+      a.click();
+    });
+  }
 
   return (
-    <ScreenCapture onEndCapture={handleScreenCapture}>
-      {({ onStartCapture }) => (
-        <div style={{ zIndex: 4, position: "absolute", top: 0 }}>
-          <Button
-            type="primary"
-            icon={<DownloadOutlined />}
-            size={"large"}
-            onClick={onStartCapture}
-          />
-        </div>
-      )}
-    </ScreenCapture>
+    <Button
+      type="primary"
+      icon={<DownloadOutlined />}
+      size={"large"}
+      onClick={handleClick}
+    />
   );
 }
 

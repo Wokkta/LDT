@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {
+  areaCoordsReducer,
   areaReducer,
   countyReducer,
   dateReducer,
@@ -21,5 +22,6 @@ export const store = configureStore({
     date: dateReducer,
     selectModel: selectModelReducer,
     dots: dotsReducer,
+    areaCoords: areaCoordsReducer,
   },
 });

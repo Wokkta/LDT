@@ -1,5 +1,5 @@
 import Select from "react-select";
-import Date from "../Date";
+
 import { useSelector, useDispatch } from "react-redux";
 
 import { DotBtn, MultipleSlider } from "../UI";
@@ -14,6 +14,7 @@ import { setRange } from "../../slices/rangeSlice";
 import { setDemand } from "../../slices/demandSlice";
 import Heatmap from "../UI/Heatmap";
 import DownloadBtn from "../UI/DownloadBtn";
+import data from "./reg.json";
 
 const Mods = () => {
   const county = useSelector((state) => state.county.county);
@@ -22,6 +23,20 @@ const Mods = () => {
   const range = useSelector((state) => state.range.range);
   const demand = useSelector((state) => state.demand.demand);
   const dispatch = useDispatch();
+
+  const areaOptions = data.map((el) => {
+    return {
+      value: el["name"],
+      label: el["name"],
+    };
+  });
+
+  const countyOptions = data.map((el) => {
+    return {
+      value: el["name_ao"],
+      label: el["name_ao"],
+    };
+  });
 
   const typeOptions = [
     {
@@ -46,64 +61,28 @@ const Mods = () => {
     <div className={s.header}>
       <Select
         defaultValue={{ value: county, label: "область" }}
-        style={{ width: "300px", zIndex: "4" }}
+        style={{ width: "330px", zIndex: "4" }}
         onChange={(e) => dispatch(setCounty(e.value))}
-        options={[
-          {
-            value: "jack",
-            label: "Jack",
-          },
-          {
-            value: "lucy",
-            label: "Lucy",
-          },
-          {
-            value: "disabled",
-            disabled: true,
-            label: "Disabled",
-          },
-          {
-            value: "Yiminghe",
-            label: "yiminghe",
-          },
-        ]}
+        options={countyOptions}
       />
       <Select
         defaultValue={{ value: area, label: "район" }}
-        style={{ width: "300px", zIndex: "4" }}
+        style={{ width: "330px", zIndex: "4" }}
         onChange={(e) => dispatch(setArea(e.value))}
-        options={[
-          {
-            value: "jack",
-            label: "Jack",
-          },
-          {
-            value: "lucy",
-            label: "Lucy",
-          },
-          {
-            value: "disabled",
-            disabled: true,
-            label: "Disabled",
-          },
-          {
-            value: "Yiminghe",
-            label: "yiminghe",
-          },
-        ]}
+        options={areaOptions}
       />
       <Select
         defaultValue={{ value: type, label: "тип объекта" }}
-        style={{ width: "300px", zIndex: "4" }}
+        style={{ width: "330px", zIndex: "4" }}
         onChange={(e) => dispatch(setType(e.value))}
         options={typeOptions}
       />
       <SelectModel />
       <MultipleSlider val={range} setVal={setRange} name="радиус" />
       <MultipleSlider val={demand} setVal={setDemand} name="востребованность" />
-      <Date />
       <Heatmap />
       <DotBtn />
+      <DownloadBtn />
     </div>
   );
 };

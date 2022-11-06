@@ -7,7 +7,7 @@ import { useFetch } from "../../../hooks";
 const selectModelOptions = [
   { value: 1, label: "точки на карте" },
   { value: 2, label: "тепловая карта" },
-  { value: 3, label: "область" },
+  { value: 3, label: "сектор" },
   { value: 4, label: "ваша точка" },
 ];
 

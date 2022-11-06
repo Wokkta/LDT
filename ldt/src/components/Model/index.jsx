@@ -7,9 +7,11 @@ import useGetJson from "../../hooks/useGetJson";
 import { useSelector, useDispatch } from "react-redux";
 import { HeatmapLayer } from "react-leaflet-heatmap-layer-v3";
 import { Dot } from "../UI";
+import { setAreaCoords } from "../../slices/areaCoordsSlice";
 
 const Model = () => {
   const selectModel = useSelector((state) => state.selectModel.selectModel);
+  const area = useSelector((state) => state.area.area);
   const dispatch = useDispatch();
   const [currentChoise, setCurrentChoise] = useState(<></>);
   const data = useGetJson();
@@ -19,6 +21,16 @@ const Model = () => {
     el["lat"],
     `${Math.random()}`,
   ]);
+  dispatch(
+    setAreaCoords(
+      data.map((el) => {
+        if (el["name"] === area) {
+          return el["geometry"]["coordinates"];
+        }
+        return [];
+      })
+    )
+  );
 
   console.log("data");
   console.log("dots");
@@ -51,7 +63,12 @@ const Model = () => {
         setCurrentChoise(<MaskOverlay />);
         break;
       case 4:
-        setCurrentChoise(<Dot />);
+        setCurrentChoise(
+          <>
+            <Dot />
+            <Postmats data={data} />
+          </>
+        );
         break;
 
       default:
